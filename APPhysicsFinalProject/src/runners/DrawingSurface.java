@@ -11,6 +11,10 @@ public class DrawingSurface extends PApplet {
         am.calculateAcceleration();
     }
 
+    public void setup() {
+
+    }
+
     public void draw() {
         am.draw(this);
         am.act();
