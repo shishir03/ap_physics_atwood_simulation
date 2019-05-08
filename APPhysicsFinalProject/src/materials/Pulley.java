@@ -27,6 +27,14 @@ public class Pulley extends Mass {
         return alpha;
     }
 
+    public void setAlpha(double newAlpha) {
+        alpha = newAlpha;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
     public void draw(PApplet p) {
         p.ellipse((float)getX(), (float)getY(), (float)radius * 2, (float)radius * 2);
     }
