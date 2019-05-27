@@ -7,6 +7,8 @@ import gui.Button;
 import gui.Slider;
 import processing.core.PApplet;
 
+import java.awt.event.KeyEvent;
+
 public class DrawingSurface extends PApplet {
     private AtwoodMachine am;
     private StandardAtwood sm;
@@ -61,8 +63,8 @@ public class DrawingSurface extends PApplet {
         M.draw(this);
         fill(0);
         text("Acceleration: " + Math.abs(Math.round(am.getAcceleration() * 10000.0) / 100.0) + " m/s", 850, 100);
-        text("t1: " + Math.abs(Math.round(am.getT1() * 10000.0) / 10000.0) + " N", 850, 120);
-        text("t2: " + Math.abs(Math.round(am.getT2() * 10000.0) / 10000.0) + " N", 850, 140);
+        text("t1: " + Math.abs(Math.round(am.getT1() * 10000.0) / 100000.0) + " N", 850, 120);
+        text("t2: " + Math.abs(Math.round(am.getT2() * 10000.0) / 100000.0) + " N", 850, 140);
         popStyle();
     }
 
@@ -100,6 +102,28 @@ public class DrawingSurface extends PApplet {
 
     public void mouseReleased() {
         if(mouseX != pmouseX || mouseY != pmouseY) reset();
+    }
+
+    public void keyPressed() {
+        if(keyCode == KeyEvent.VK_RIGHT) {
+            m1.setValue(m1.getValue() + 1);
+            reset();
+        } else if(keyCode == KeyEvent.VK_LEFT) {
+            m1.setValue(m1.getValue() - 1);
+            reset();
+        } else if(keyCode == KeyEvent.VK_D) {
+            m2.setValue(m2.getValue() + 1);
+            reset();
+        } else if(keyCode == KeyEvent.VK_A) {
+            m2.setValue(m2.getValue() - 1);
+            reset();
+        } else if(keyCode == KeyEvent.VK_UP) {
+            M.setValue(M.getValue() + 1);
+            reset();
+        } else if(keyCode == KeyEvent.VK_DOWN) {
+            M.setValue(M.getValue() - 1);
+            reset();
+        }
     }
 
     private void reset() {

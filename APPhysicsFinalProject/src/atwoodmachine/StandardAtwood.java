@@ -72,7 +72,7 @@ public class StandardAtwood extends AtwoodMachine {
         double m1 = mass1.getMass();
         double m2 = mass2.getMass();
 
-        t1 = m1 * (GRAVITY - acceleration);
+        t1 = m1 * (GRAVITY + acceleration);
         t2 = m2 * (GRAVITY - acceleration);
     }
 }
