@@ -7,8 +7,6 @@ import gui.Button;
 import gui.Slider;
 import processing.core.PApplet;
 
-import java.awt.event.KeyEvent;
-
 public class DrawingSurface extends PApplet {
     private AtwoodMachine am;
     private StandardAtwood sm;
@@ -16,14 +14,12 @@ public class DrawingSurface extends PApplet {
     private boolean stopped;
     private Button halfAtwood;
     private Button standardAtwood;
-    // private Button rampAtwood;
     private Button stopStart;
     private Button reset;
     private Button setDefault;
     private Slider m1;
     private Slider m2;
     private Slider M;
-    // private long runs;
 
     public DrawingSurface() {
         stopped = true;
@@ -38,15 +34,9 @@ public class DrawingSurface extends PApplet {
         m1.setValue(700);
         m2.setValue(1000);
         M.setValue(0);
-
-        /* System.out.println(m1.getValue());
-        System.out.println(m2.getValue());
-        System.out.println(M.getValue()); */
-
         hm = new HalfAtwood(m1.getValue(), m2.getValue(), M.getValue(),-1, 0);
         sm = new StandardAtwood(m1.getValue(), m2.getValue(), M.getValue(), -1);
         am = hm;
-        // runs = 0;
     }
 
     public void setup() {
@@ -56,7 +46,6 @@ public class DrawingSurface extends PApplet {
     public void draw() {
         if(!stopped) {
             am.act();
-            // runs++;
         }
 
         pushStyle();
